@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="ICON_C.svg">
+    <style>
+
+    /* Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Main Body Styling */
+    body, html {
+        font-family: 'IBM Plex Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height: 100%;
+        background-color: #FFFF;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+
+    /* Freccia indietro */
+       .back-arrow {
+        position: fixed;
+        top: 30px;
+        left: 30px;
+        font-size: 48px;
+        color: black;
+        text-decoration: none;
+        width: 48px;
+        height: 48px;
+        display: inline-block;
+        text-align: center;
+        line-height: 48px;
+        }
+
+        .back-arrow:hover {
+        color: #5ECBA1;
+        }
+
+    /* Container */
+    .container {
+        display: flex;
+        align-items: flex-start; /* Allinea il contenuto in alto */
+        justify-content: center;
+        max-width: 1500px;
+        position: relative;
+    }
+
+    .container img {
+        width: 300px;
+        height: 420px;
+        margin-right: 50px;
+        border-radius: 10px;
+    }
+
+    .content {
+        max-width: 800px;
+        text-align: left;
+    }
+
+    .Experiences{
+        margin-top: 15px;
+        line-height: 1.8;
+    }
+
+    .hobbies{
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    h1 {
+        font-size: 45px;
+        margin-bottom: 15px;
+        margin-top: 0px;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    li {
+        font-size: 20px;
+    }
+
+    a {
+        font-size: 20px;
+        color: black;
+    }
+
+/* Bottoni bassi */
+    .bottom-button {
+    position: fixed;
+    bottom: 20px;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 2px solid;
+    border-radius: 100px;
+    border-color: black;
+    color: black;
+  }
+
+  .bottom-button:hover {
+      background-color: black;
+      color: white;
+  }
+
+  /* Posizioni */
+  .bottom-button.left {
+      left: 20px;
+  }
+
+  .bottom-button.right {
+      right: 20px;
+  }
+
+    /* Responsiveness */
+            @media (max-width: 800px) {
+                body {
+                    padding: 10px;
+                }
+
+                .back-arrow {
+                    font-size: 32px;
+                    width: 32px;
+                    height: 32px;
+                    top: 10px;
+                    left: 10px;
+                }
+
+                .container {
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 10px;
+                }
+
+                .container img {
+                  max-width: 50%;
+                  height: auto;
+                  padding: 0; /* Rimuove il padding che potrebbe influire */
+                  margin-right: 0px;
+                  margin-bottom: 10px;
+                  border-radius: 10px !important; /* Forza il border-radius */
+                  display: block; /* Assicura che non ci siano problemi con il layout */
+                  }
+
+                .content {
+                    margin: 10px 0; /* Margine minimo per dispositivi mobili */
+                    padding: 0 30px;
+                    text-align: left;
+                }
+
+                h1 {
+                    font-size: 25px;
+                    text-align: left;;
+                    margin-top: 10px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+
+                li {
+                    font-size: 14px;
+                }
+
+/* Pallina */
+    .bouncing-icon {
+                    position: fixed;
+                    top: 50%;
+                    width: 50px; /* Modifica la dimensione dell'SVG */
+                    height: 50px;
+                    z-index: 9999;
+                }
+
+    @media (max-width: 800px) {
+                    .bouncing-icon {
+                        display: none;
+                    }
+                }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Back Arrow -->
+    <a href="file:///C:/Users/ldarc/OneDrive/Desktop/Costanzadarcangelis/index.html" class="back-arrow">&#8592;</a>
+
+    <!-- Pallina -->
+    <div id="bouncing-icon" class="bouncing-icon">
+        <img src="Smile.svg" alt="Bouncing Icon">
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <img src="Photo/profilo.jpg" alt="Foto" />
+        <div class="content">
+            <p> <b> Hello :) I’m Costanza, an Italian designer currently based in the Netherlands </b> </p>
+            <p class="Experiences"> <b>Passionate about:</b> Technology, AI, Human-computer interaction, Human connections, and (last but not least) Making changes</p>
+            <p class="Experiences"> <b>Curious to explore:</b> Programming, and back-end development, AI building.</p>
+            <p class="Experiences"> <b>Working relevance:</b>
+<br> 1. Product designer at <a href="https://www.letsenvision.com/">Envision</a> 2022-Currently
+<br> 2. UX Research Assistant for Quantum Computing accessibility at <a href="https://www.tudelft.nl/en/ide">TUDelft</a> 2021-2022
+<br> 3. Freelance graphic and web designer 2020-2021
+ </p>
+ <p class="hobbies">
+<br> <b>Currently reading:</b> Before the Coffee Gets Cold - Toshikazu Kawaguchi
+<br> <b>Current hobby:</b> Crocheting
+<br> <b>Plants alive:</b> 4/4
+</p>
+        </div>
+      </div>
+
+      <a href="CV_Costanza DArcangelis.pdf" class="bottom-button left">Dowload Full CV</a>
+      <a href="https://costanzadarcangelis.blogspot.com/" class="bottom-button right">Go to my Blog</a>
+
+
+<!-- Pallina animazione-->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const icon = document.getElementById("bouncing-icon");
+        let posX = Math.random() * (window.innerWidth - icon.clientWidth);
+        let posY = Math.random() * (window.innerHeight - icon.clientHeight);
+        let speedX = 3 * (Math.random() > 0.5 ? 1 : -1); // Velocità casuale in X
+        let speedY = 3 * (Math.random() > 0.5 ? 1 : -1); // Velocità casuale in Y
+
+        function animate() {
+            posX += speedX;
+            posY += speedY;
+
+            if (posX + icon.clientWidth >= window.innerWidth || posX <= 0) {
+                speedX *= -1; // Inverti direzione orizzontale
+            }
+
+            if (posY + icon.clientHeight >= window.innerHeight || posY <= 0) {
+                speedY *= -1; // Inverti direzione verticale
+            }
+
+            icon.style.left = posX + "px";
+            icon.style.top = posY + "px";
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    });
+</script>
+
+
+</body>
+</html>

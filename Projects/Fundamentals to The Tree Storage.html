@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentals to The Tree Storage </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="C:\Users\ldarc\OneDrive\Desktop\Costanzadarcangelis\ICON_C.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+/* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+/* Main Body Styling */
+    body, html {
+      font-family: 'IBM Plex Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffff;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      }
+
+  /* Freccia indietro */
+        .back-arrow {
+          position: fixed;
+          top: 30px;
+          left: 30px;
+          font-size: 48px;
+          color: black; /* Default color set to black */
+          text-decoration: none;
+          width: 48px;
+          height: 48px;
+          display: inline-block;
+          text-align: center;
+          line-height: 48px;
+          transition: color 0.3s ease; /* Smooth transition */
+        }
+
+        /* Hover Effect */
+        .back-arrow:hover {
+          color: #5ECBA1; /* Green on hover */
+          text-decoration: none;
+        }
+
+        /* When scrolled past topbar */
+        .scrolled .back-arrow {
+          color: black; /* Keeps the arrow black */
+        }
+
+        .scrolled .back-arrow:hover {
+          color: #5ECBA1; /* Turns green when hovered */
+          text-decoration: none;
+        }
+
+/* Blocco principale */
+      .content {
+       padding: 80px;
+       }
+
+      .content h1 {
+       font-size: 45px;
+       margin-bottom: 32px;
+       margin-top: 16px;
+       }
+
+      .content p {
+       font-size: 20px;
+       margin-bottom: 64px;
+       line-height: 28px;
+       }
+
+/* topbar */
+      .topbar {
+       position: relative;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: auto;
+       background-color: Black;
+       color: white;
+       padding: 100px 80px 50px 80px;
+       }
+
+      .topbar p {
+       margin-bottom: 16px;
+       font-size: 20px;
+       line-height: 35px;
+       max-width: 1200px; /* Same as the gallery */
+       margin: 0 auto; /* Center the intro */
+       }
+
+      .topbar a {
+       color: white;
+      }
+
+      .topbar a:hover {
+       color: #5ECBA1;
+      }
+
+/* tag del progetto */
+  .badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    max-width: 1200px; /* Same as the gallery */
+    margin: 10px auto 0 auto;
+  }
+
+  .badge {
+    display: inline-block;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+/* intro */
+      .intro {
+        max-width: 1200px; /* Same as the gallery */
+        margin: 0 auto; /* Center the intro */
+      }
+
+/* Griglia*/
+     .container {
+      display: grid;
+      row-gap: 30px;
+      }
+
+      .container {
+          width: 100%;
+          max-width: 1225px;
+      }
+
+      img {
+          width: 100%; /* Adatta le immagini alla colonna */
+          height: auto; /* Mantieni proporzioni */
+          object-fit: cover; /* Adatta il contenuto senza deformarlo */
+          display: block;
+          border-radius: 10px;
+      }
+
+      .img-stroke {
+        border: 1px solid #E3E6E9; /* Adjust thickness & color */
+       }
+
+      .container .row .col .grid-text {
+          color: #939393;
+          font-size: 16px;
+          line-height: 22px;
+          font-weight: 300;
+          margin-bottom: 0px;
+      }
+
+      .grid-H3 {
+          color: Black;
+          margin-bottom: 20px;
+          margin-top: 20px;
+          padding: 0px;
+          font-weight: bold;
+      }
+
+      .video {
+          border-radius: 10px;
+      }
+
+/* Media query per schermi piccoli (smartphone) */
+@media (max-width: 800px) {
+  h1 {
+      font-size: 30px;
+  }
+
+  h2 {
+      font-size: 25px;
+  }
+
+  h3 {
+      font-size: 20px;
+  }
+
+  p {
+      font-size: 18px;
+  }
+
+  .back-arrow {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+  }
+
+  .topbar {
+      position: relative;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px 20px 50px 20px;
+  }
+
+  .content {
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      margin-top: 70px;
+  }
+
+  /* Galleria in colonna all'interno di .content */
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra le immagini */
+      gap: 20px; /* Aggiunge spazio tra le immagini */
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+
+  .container .row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center; /* Mantiene il contenuto centrato */
+      gap: 20px; /* Spazio tra gli elementi */
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+
+  .container .row > .col {
+      width: 100%;
+      max-width: 100%;
+      flex: 0 0 100%;
+      text-align: left; /* Allinea il testo */
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+
+  img {
+      width: 100%; /* Adatta l'immagine alla larghezza della colonna */
+      max-width: 500px; /* Opzionale: evita immagini troppo grandi */
+  }
+
+  .iframe-container {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Centers the video */
+  }
+
+  iframe {
+      width: 100%; /* Makes it responsive */
+      max-width: 100%; /* Ensures it does not overflow */
+      height: auto; /* Adjust height proportionally */
+  }
+}
+    </style>
+</head>
+
+
+<body>
+    <!--  Top Bar -->
+    <aside>
+      <div class="topbar">
+        <a href="file:///C:/Users/ldarc/OneDrive/Desktop/Costanzadarcangelis/index.html#portfolio" class="back-arrow">&#8592;</a>
+        <p>2023, Solo Project - TUDelft</p>
+        <!-- links -->
+        <p> <a href="https://www.4tu.nl/du/projects/the-tree-storage/" target="_blank">4TU Blog article - DDW23</a></p>
+        <!-- Badges in linea -->
+        <div class="badges-container">
+              <span class="badge" style="background-color: #DAC6FB;">UX Research</span>
+              <span class="badge" style="background-color: #99D7E5;">Human-Computer Design</span>
+              <span class="badge" style="background-color: #5ECBA1;">MTHD</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="intro">
+        <h1> <b> Fundamentals to “The Tree Storage” </b> </h1>
+        <p>This project is a speculative design experiment within the field of More-Than-Human Design. It challenges the anthropocentric perspective, exploring alternative design approaches. While speculative by nature, More-Than-Human Design was envisioned as a tool for creating new interactions. The project is divided into two main areas: research, culminating in a manifesto, and the design and prototyping of a potential exhibition. It was selected for inclusion in a 4TU blog article during Dutch Design Week.</p>
+        </div>
+
+        <!-- Griglia -->
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="grid-H3">Manifesto and fundamentals</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_Intersaction.svg" alt="2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_manifesto close.png" alt="2">
+    </div>
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_manifesto open.png" alt="2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="grid-text">
+        The manifesto consists of interwoven layers where, as humans, we primarily recognize the interconnectedness of humans, nature, and technology. We acknowledge anthropocentrism but strive not to adopt it, designing with these principles in mind without seeing them as limitations. Instead, we believe in a collaborative reality.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h3 class="grid-H3">Experiments</h3>
+      <p class="grid-text">
+        The project explores a speculative design concept in which memories and data, such as photos, are stored in trees, revealing the signs of time, nature, and weather through their form.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_data storage.svg" alt="2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="grid-text">
+        To simulate the uploading of personal photos, the exhibition was designed as a full experience: visitors would take photos, upload them to the storage, let time pass, and then return to check on them.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_explore.jpg" alt="2">
+    </div>
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_upload.jpg" alt="2">
+    </div>
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_nature.gif" alt="2">
+    </div>
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_discover.jpg" alt="2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_midjourney.png" alt="2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="grid-text">
+        The tree storage was therefore a means to explore how humans value more-than-human elements. It raises the question: do their opinions change when something they own is affected by external forces?
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <img class="img-fluid" src="../Photo/2_graph.svg" alt="2">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="grid-text">
+        Ours is not just ours, and even when affected, it can still be beautiful.
+      </p>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-4 mb-3">
+        <img class="img-fluid" src="../Photo/2_distorta 1.jpg" alt="1">
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <img class="img-fluid" src="../Photo/2_distorta 2.jpg" alt="2">
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <img class="img-fluid" src="../Photo/2_distorta 3.jpg" alt="3">
+      </div>
+    </div>
+
+
+      <div class="row">
+          <div class="col">
+            <iframe class="video" width="1200" height="675" src="https://www.youtube.com/embed/mRUCtN8hajo?si=KEKnSMnqrUvCOZu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+      </div>
+
+  </div>
+
+  <!-- Freccia animation -->
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const topbar = document.querySelector(".topbar");
+  const body = document.body;
+
+  window.addEventListener("scroll", function () {
+      if (window.scrollY > topbar.clientHeight) {
+          body.classList.add("scrolled");
+      } else {
+          body.classList.remove("scrolled");
+      }
+  });
+});
+</script>
+
+</body>
+</html>

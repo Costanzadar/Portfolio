@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How might chatGPT the accessibility of quantum computing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="C:\Users\ldarc\OneDrive\Desktop\Costanzadarcangelis\ICON_C.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+/* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+/* Main Body Styling */
+    body, html {
+      font-family: 'IBM Plex Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffff;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      }
+
+/* Freccia indietro */
+  .back-arrow {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    font-size: 48px;
+    color: black; /* Default color set to black */
+    text-decoration: none;
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    text-align: center;
+    line-height: 48px;
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+
+  /* Hover Effect */
+  .back-arrow:hover {
+    color: #5ECBA1; /* Green on hover */
+    text-decoration: none;
+  }
+
+  /* When scrolled past topbar */
+  .scrolled .back-arrow {
+    color: black; /* Keeps the arrow black */
+  }
+
+  .scrolled .back-arrow:hover {
+    color: #5ECBA1; /* Turns green when hovered */
+    text-decoration: none;
+  }
+
+
+/* Blocco principale */
+      .content {
+       padding: 80px;
+       }
+
+      .content h1 {
+       font-size: 45px;
+       margin-bottom: 32px;
+       margin-top: 16px;
+       }
+
+      .content p {
+       font-size: 20px;
+       margin-bottom: 64px;
+       line-height: 28px;
+       }
+
+/* topbar */
+      .topbar {
+       position: relative;
+       left: 0;
+       top: 0;
+       width: 100%;
+       height: auto;
+       background-color: Black;
+       color: white;
+       padding: 100px 80px 50px 80px;
+       }
+
+      .topbar p {
+       margin-bottom: 16px;
+       font-size: 20px;
+       line-height: 35px;
+       max-width: 1200px; /* Same as the gallery */
+       margin: 0 auto; /* Center the intro */
+       }
+
+      .topbar a {
+       color: white;
+      }
+
+      .topbar a:hover {
+       color: #5ECBA1;
+      }
+
+/* tag del progetto */
+  .badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    max-width: 1200px; /* Same as the gallery */
+    margin: 10px auto 0 auto;
+  }
+
+  .badge {
+    display: inline-block;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+/* intro */
+      .intro {
+        max-width: 1200px; /* Same as the gallery */
+        margin: 0 auto; /* Center the intro */
+      }
+
+/* Griglia*/
+     .container {
+      display: grid;
+      row-gap: 30px;
+      }
+
+      .container {
+          width: 100%;
+          max-width: 1225px;
+      }
+
+      img {
+          width: 100%; /* Adatta le immagini alla colonna */
+          height: auto; /* Mantieni proporzioni */
+          object-fit: cover; /* Adatta il contenuto senza deformarlo */
+          display: block;
+          border-radius: 10px;
+      }
+
+      .img-stroke {
+        border: 1px solid #E3E6E9; /* Adjust thickness & color */
+       }
+
+      .container .row .col .grid-text {
+          color: #939393;
+          font-size: 16px;
+          line-height: 22px;
+          font-weight: 300;
+          margin-bottom: 0px;
+      }
+
+      .grid-H3 {
+          color: Black;
+          margin-bottom: 20px;
+          margin-top: 20px;
+          padding: 0px;
+          font-weight: bold;
+      }
+
+      .video {
+          border-radius: 10px;
+      }
+
+/* Media query per schermi piccoli (smartphone) */
+@media (max-width: 800px) {
+  h1 {
+      font-size: 30px;
+  }
+
+  h2 {
+      font-size: 25px;
+  }
+
+  h3 {
+      font-size: 20px;
+  }
+
+  p {
+      font-size: 18px;
+  }
+
+  .back-arrow {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+  }
+
+  .topbar {
+      position: relative;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px 20px 50px 20px;
+  }
+
+  .content {
+      width: 100%;
+      margin: 0;
+      padding: 20px;
+      margin-top: 70px;
+  }
+
+  /* Galleria in colonna all'interno di .content */
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra le immagini */
+      gap: 20px; /* Aggiunge spazio tra le immagini */
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+
+  .container .row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center; /* Mantiene il contenuto centrato */
+      gap: 20px; /* Spazio tra gli elementi */
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+
+  .container .row > .col {
+      width: 100%;
+      max-width: 100%;
+      flex: 0 0 100%;
+      text-align: left; /* Allinea il testo */
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+
+  img {
+      width: 100%; /* Adatta l'immagine alla larghezza della colonna */
+      max-width: 500px; /* Opzionale: evita immagini troppo grandi */
+  }
+
+  .iframe-container {
+      width: 100%;
+      display: flex;
+      justify-content: center; /* Centers the video */
+  }
+
+  iframe {
+      width: 100%; /* Makes it responsive */
+      max-width: 100%; /* Ensures it does not overflow */
+      height: auto; /* Adjust height proportionally */
+  }
+}
+    </style>
+</head>
+
+
+<body>
+    <!--  Top Bar -->
+    <aside>
+      <div class="topbar">
+        <a href="file:///C:/Users/ldarc/OneDrive/Desktop/Costanzadarcangelis/index.html#portfolio" class="back-arrow">&#8592;</a>
+        <p>2024, Solo Project - TUDelft</p>
+        <!-- Links -->
+        <p> <a href="https://repository.tudelft.nl/record/uuid:657c365b-be9a-4a8d-b29d-6679fccec764" target="_blank">Master’s Thesis – Full Document  </a>,   <a href="https://www.paginesispa.it/blog/presenza-online/lia-rende-il-quantum-computing-alla-portata-di-quasi-tutti/" target="_blank"> Local Journal Interview</a></p>
+        <!-- Badges in linea -->
+        <div class="badges-container">
+              <span class="badge" style="background-color: #DAC6FB;">UX Research</span>
+              <span class="badge" style="background-color: #5ECBA1;">AI</span>
+              <span class="badge" style="background-color: #99D7E5;">Human-Computer Design</span>
+              <span class="badge" style="background-color: #F2F88C;">User-Centred Design</span>
+      </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="intro">
+        <h1> <b> How might chatGPT improve the accessibility of quantum computing? </b> </h1>
+        <p> Why is quantum computing so complex? Can AI make it accessible to all? This research explores how ChatGPT, specifically the fine-tuned Quantum Buddy 2.0, can bridge the gap between quantum computing and non-experts.
+          Through benchmark tasks, the study demonstrates how AI enables users to tackle quantum encryption problems and simplifies programming. Results show that ChatGPT can help novices learn, assist coders in understanding quantum mechanics, and enhance expert efficiency.
+          While challenges remain, this research lays the foundation for a future where AI democratizes quantum computing, making it a tool for everyone.</p>
+        </div>
+
+        <!-- Griglia -->
+        <div class="container">
+
+          <div class="row">
+            <div class="col"> <img src="../Photo/1_GAP.svg" alt="2"> </div>
+            <div class="col"> <img src="../Photo/1_CHATGPT.svg" alt="2"> </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <p class="grid-text no-margin-top"> Quantum computing remains inaccessible due to its complexity, creating a gap between enthusiasts and understanding. LLMs like ChatGPT can bridge this gap by enhancing accessibility. To explore this, a human-centered design approach was used to evaluate how users leverage ChatGPT for coding with the IBM Quantum Computing simulator. </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <img src="../Photo/1_METHOD.svg" alt="2">
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <img class="img-fluid" src="../Photo/1_GRAF1.svg" alt="1">
+              </div>
+              <div class="col">
+                  <img class="img-fluid" src="../Photo/1_GRAF2.svg" alt="2">
+              </div>
+              <div class="col">
+                  <img class="img-fluid" src="../Photo/1_GRAF3.svg" alt="3">
+              </div>
+            </div>
+
+          <div class="row">
+              <div class="col">
+                <p class="grid-text no-margin-top"> One-on-one sessions were conducted to directly assess user feelings, supplementing the user journey—first completed independently—with additional insights from session notes. </p>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <img src="../Photo/1_1_1 sessions.svg" alt="2">
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                <p class="grid-text no-margin-top"> An experimental approach was used in the workshop with designers, where creative coding served as a bridge between creativity and programming, later translating these skills into pattern creation with the quantum simulator. </p>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <img src="../Photo/1_Creative coding.gif" alt="2">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col"> <img src="../Photo/1_WORK4.gif" alt="1"> </div>
+            <div class="col"> <img src="../Photo/1_WORK1.jpg" alt="2"> </div>
+            <div class="col"> <img src="../Photo/1_WORK2.jpg" alt="3"> </div>
+            <div class="col"> <img src="../Photo/1_WORK3.jpg" alt="4"> </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <img src="../Photo/1_Feedback colelctions.jpg" alt="2">
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <p class="grid-text no-margin-top"> All data gathered during the thesis were collected and clustered using a co-creative approach.</p>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <img src="../Photo/1_video.gif" alt="2">
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <p class="grid-text no-margin-top"> The final design goal led to the exploration of the then-new custom GPT, resulting in a tailored GPT for quantum computing. Testers, including quantum computing experts, found the approach ideal but emphasized the need for continuous updates, especially due to the evolving nature of Qiskit and IBM’s quantum computing developments. </p>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                <iframe class="video" width="1200" height="675" src="https://www.youtube.com/embed/APjdkSJp8iw?si=A7NNUfdrWFerS3Bm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <img src="../Photo/1_good experience.jpg" alt="2">
+            </div>
+          </div>
+
+          <!-- <div class="row">
+            <div class="col">
+              <img src="../Photo/1_flip book.gif" alt="2">
+            </div>
+          </div> -->
+
+        </div>
+    </div>
+
+    <!-- Freccia animation -->
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const topbar = document.querySelector(".topbar");
+    const body = document.body;
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > topbar.clientHeight) {
+            body.classList.add("scrolled");
+        } else {
+            body.classList.remove("scrolled");
+        }
+    });
+});
+</script>
+
+
+</body>
+</html>

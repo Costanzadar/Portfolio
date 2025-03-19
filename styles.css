@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans', 'Segoe UI', Tahoma, Geneva, sans-serif;
+    background-color: white;
+    color: Black;
+    overflow-x: hidden; /* Nasconde lo scroll orizzontale */
+}
+h1 {
+    font-size: 45px;
+}
+h2 {
+    font-size: 35px;
+}
+h3 {
+    font-size: 30px;
+}
+p {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 300;
+}
+a {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+/* header */
+header {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Ensures no overflow from the header */
+}
+
+.left-header {
+    position: relative;
+    flex: 1;
+    overflow: hidden; /* Prevents the image from spilling over its div */
+}
+
+.left-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the div */
+}
+
+.left-header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.right-header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Adjusts content to space out to edges */
+    position: relative;
+    padding: 20px; /* Padding inside the right header */
+}
+
+.vision-statement {
+    margin-top: auto; /* Pushes the element to the bottom */
+}
+
+.hamburger-menu {
+    position: left;
+    top: 70px;
+    right: 40px; /* Regola la posizione in alto a destra */
+    cursor: pointer;
+    color: black; /* Colore dell'icona */
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 200; /* Opzioni per personalizzare l'icona */
+}
+
+.dropdown-content {
+    display: none;
+    position: left;
+    right: 0; /*Aligns dropdown to the right edge */
+    background-color: White;
+    min-width: 160px;
+    z-index: 1;
+    padding: 0px;
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.dropdown-content a:hover {
+    color: #5ECBA1; /* Colore del testo al passaggio del mouse */
+}
+
+.hamburger-menu:hover .dropdown-content {
+    display: block;
+}
+
+.vision-statement {
+    font-weight: bold;
+    margin-top: 20px; /* Provides spacing from the menu */
+    padding: 0 20px; /* Padding for text alignment */
+}
+
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .left-header, .right-header {
+        width: 100%;
+    }
+
+    .hamburger-menu {
+        position: absolute;
+        top: 20px;
+        left: 20px; /* Posiziona l'icona del menu nell'angolo in alto a sinistra */
+    }
+
+    .dropdown-content {
+        position: static; /* Rimuove la posizione assoluta */
+        min-width: 100%; /* Occupa l'intera larghezza del contenitore */
+        text-align: center; /* Centra il testo su schermi piccoli */
+    }
+
+    .dropdown-content a {
+        padding: 10px 0; /* Riduce il padding per un aspetto più compatto */
+        font-size: 16px; /* Ridimensiona il testo */
+    }
+
+    .left-header {
+        position: relative;
+        text-align: center;
+    }
+
+    .vision-statement {
+        margin-top: 180px;
+        padding: 0px;
+        max-width: 90%;
+        text-align: left;
+    }
+}
+
+/* motivation*/
+  #motivational {
+    height: 100vh; /* Full viewport height */
+    /* width: 100vw; Full viewport width */
+    background-color: #5ECBA1 ; /* Black background */
+    color: #F2F88C; /* White text for contrast */
+    display: flex;
+    padding: 20px;
+    align-items: center; /* Centers text vertically */
+    text-align: left;
+    font-size: 32px; /* Large font size for impact */
+    text-align: center; /* Ensures text is centered if it wraps */
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  #typed-output {
+    display: inline-block; /* Prevent the cursor from jumping to the next line */
+  }
+
+.typed-cursor {
+    font-weight: bold;
+    color: #5ECBA1; /* Customize the cursor color */
+    display: inline; /* Ensure the cursor stays inline with the text */
+    vertical-align: baseline; /* Align cursor with text baseline */
+}
+
+
+  @media (max-width: 768px) {
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+       font-size: 18px;
+    }
+
+    #motivational {
+        font-size: 32px; /* Slightly smaller font size for smaller screens */
+    }
+}
+
+
+/* Project list */
+.project-link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Ensures the text color is inherited from parent elements */
+    display: block; /* Makes the link behave as a block, filling the area of its container */
+}
+
+.project-list {
+    width: 100vw; /* Set the width to full viewport width */
+    margin: 0;
+    padding: 0;
+    background-color: #fff; /* White background for the whole list */
+}
+
+.project-link {
+    display: block; /* Ensures the link fills the container */
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color */
+    border-bottom: 1px solid #000; /* Adds a divider line at the bottom of each link */
+}
+
+.project-item {
+    display: flex;
+    align-items: flex-start; /* Vertically aligns items at the start */
+    padding: 30px; /* Padding around the project item */
+    position: relative; /* Allows absolute positioning for the project number */
+}
+
+.project-item img {
+    width: 20%; /* Set image width */
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the assigned area properly */
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    border-radius: 5px;
+}
+
+.project-item h3 {
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.project-number {
+    position: absolute; /* Absolute positioning relative to the parent */
+    top: 10px; /* Aligns at the top of the container */
+    right: 20px; /* Aligns to the right edge of the container */
+    /* background-color: rgba(255, 255, 255, 0.7); Semi-transparent white background */
+    padding: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.text-content {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column; /* Organizza il testo verticalmente */
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+.project-description {
+    color: #939393; /* Color for the description */
+    margin-top: 5px; /* Space between title and description */
+    margin-left: 25px; /* Resets margin */
+    width: 80%; /* Il testo occupa l'80% dello spazio */
+}
+
+.project-link.no-border {
+    display: inherit; /* Ensures the link fills the container */
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color */
+    border-bottom: none; /* Rimuove il bordo inferiore */
+}
+
+@media (max-width: 800px) {
+      h1 {
+          font-size: 30px;
+      }
+
+      h2 {
+          font-size: 25px;
+      }
+
+      h3 {
+          font-size: 20px;
+      }
+
+      p {
+          font-size: 18px;
+      }
+
+    .project-item {
+        flex-direction: column;
+        align-items: left; /* Centers items on smaller screens */
+    }
+
+    .project-item h3 {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    .project-description {
+        margin-left: 0px; /* Resets margin */
+    }
+
+    .text-content {
+        text-align: left;; /* Centers text on smaller screens */
+        margin-left: 0;
+    }
+
+    .project-number {
+        position: static; /* Adjusts position for better layout */
+        margin-top: 10px; /* Space between image and number */
+        display: block;
+        align-items: left;
+        padding: 0px;
+    }
+
+    .project-item img {
+        width: 100%; /* Full width images on smaller screens */
+    }
+}
+
+
+/* Contatti */
+#contatti {
+    height: 100vh; /* Full viewport height */
+    /* width: 100vw; Full viewport width */
+    background-color: #F2F88C ; /* Black background */
+    color: #5ECBA1; /* White text for contrast */
+    display: flex;
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    text-align: center; /* Ensures text is centered if it wraps */
+    margin: 0; /* Removes any default margins */
+    padding: 0; /* Removes any default padding */
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #5ECBA1;
+}
+
+.social-links a:hover {
+    color: Black; /* Cambia colore al passaggio del mouse */
+}
+
+.social-links i {
+    margin-right: 5px;
+}
+
+/* Freccia per tornare in alto */
+.scroll-to-top {
+   display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 40px;
+    color: white;
+    background-color: #5ECBA1;
+    padding: 0;
+    text-decoration: none;
+    width: 50px; /* Dimensione del pulsante */
+    height: 50px; /* Dimensione del pulsante */
+    display: none; /* Nascosta di default */
+    justify-content: center; /* Centra l'icona orizzontalmente */
+    align-items: center; /* Centra l'icona verticalmente */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000; /* Garantisce che sia sempre visibile */
+    display: flex; /* Utilizza il layout flexbox */
+}
+
+.scroll-to-top:hover {
+    background-color: black;
+    color: #F2F88C;
+    transform: scale(1.1); /* Effetto hover */
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-size: 40px; /* Dimensione dell'icona */
+}
+
+
+/* styles.css */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #fff;
+    color: Black;
+    width: 100%; /* Ensures the footer stretches across the full width of the viewport */
+}
+
+
+.coming-soon {
+    background: Black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 16px;
+    width: 130px;
+    margin-left: 25px;
+}
+
+.text {
+    font-weight: bold;
+    letter-spacing: 2px;
+    align-items: center;
+}
