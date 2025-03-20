@@ -46,6 +46,16 @@
         color: #5ECBA1;
         }
 
+      /* wrapper */
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1500px;
+            width: 100%;
+            margin: 20px;
+        }
+
     /* Container */
     .container {
         display: flex;
@@ -99,7 +109,8 @@
 
 /* Bottoni bassi */
     .bottom-button {
-    position: fixed;
+    position: flex;
+    flex-direction: column;
     bottom: 20px;
     padding: 12px 20px;
     font-size: 20px;
@@ -125,6 +136,14 @@
       right: 20px;
   }
 
+  .button-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 16px;
+  }
+
     /* Responsiveness */
             @media (max-width: 800px) {
                 body {
@@ -139,10 +158,15 @@
                     left: 10px;
                 }
 
+                .wrapper {
+                    margin: 40px 0 0 0;
+                    height: 100%;
+                }
+
                 .container {
                     flex-direction: column;
                     align-items: center;
-                    margin: 10px;
+                    margin-bottom: 16px;
                 }
 
                 .container img {
@@ -157,8 +181,14 @@
 
                 .content {
                     margin: 10px 0; /* Margine minimo per dispositivi mobili */
-                    padding: 0 30px;
+                    padding: 0 12px;
                     text-align: left;
+                }
+
+                .button-container {
+                  grid-auto-flow: row;
+                  width: 100%;
+                  gap: 16px;
                 }
 
                 h1 {
@@ -170,11 +200,15 @@
                 p {
                     font-size: 14px;
                 }
-            }
 
                 li {
                     font-size: 14px;
                 }
+
+                a {
+                    font-size: 14px;
+                }
+            }
 
 /* Pallina */
     .bouncing-icon {
@@ -205,6 +239,7 @@
     </div>
 
     <!-- Main Container -->
+    <div class="wrapper">
     <div class="container">
         <img src="Photo/profilo.jpg" alt="Foto" />
         <div class="content">
@@ -224,9 +259,11 @@
         </div>
       </div>
 
+<div class="button-container">
       <a href="CV_Costanza DArcangelis.pdf" class="bottom-button left">Dowload Full CV</a>
       <a href="https://costanzadarcangelis.blogspot.com/" class="bottom-button right">Go to my Blog</a>
-
+</div>
+</div>
 
 <!-- Pallina animazione-->
 <script>
