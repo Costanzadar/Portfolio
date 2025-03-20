@@ -15,7 +15,7 @@
 <header>
   <div class="right-header"><!-- in realtà sta a sinistra -->
       <div class="menu">
-          <div class="hamburger-menu">
+          <div class="hamburger-menu" tabindex="0">
               <span class="material-symbols-outlined">menu</span>
               <div class="dropdown-content">
                   <a href="#portfolio">Projects</a>
@@ -72,7 +72,7 @@
 </div>
 </a>
 <!-- Design Methods with AI -->
-<a href="file:///C:/Users/ldarc/OneDrive/Desktop/Costanzadarcangelis/Projects/Design%20Methods%20with%20AI.html" class="project-link">
+<a href="Projects/Design Methods with AI.html" class="project-link">
   <div class="project-item">
     <img src="Photo/3_COVER.jpg" alt="Project 1 Image">
     <div class="text-content">
@@ -96,7 +96,7 @@
 </a> -->
 
 <!-- Quantum Card Deck -->
-<a href="file:///C:/Users/ldarc/OneDrive/Desktop/Costanzadarcangelis/Projects/Quantum%20Card%20Deck.html" class="project-link">
+<a href="Projects/Quantum Card Deck.html" class="project-link">
   <div class="project-item">
   <img src="Photo/4_COVER.jpg" alt="Project 1 Image">
   <div class="text-content">
@@ -108,7 +108,7 @@
 </a>
 
 <!-- UXAD -->
-<a href="file:///C:/Users/ldarc/OneDrive/Desktop/Costanzadarcangelis/Projects/Kompano.html" class="project-link">
+<a href="Projects/Kompano.html" class="project-link">
   <div class="project-item">
   <img src="Photo/5_COVER.jpg" alt="Project 1 Image">
   <div class="text-content">
@@ -120,7 +120,7 @@
 </a>
 
 <!-- Ford -->
-<a href="file:///C:/Users/ldarc/OneDrive/Desktop/Costanzadarcangelis/Projects/FordAmigo.html" class="project-link">
+<a href="Projects/FordAmigo.html" class="project-link">
   <div class="project-item">
   <img src="Photo/6_COVER.jpg" alt="Project 1 Image">
   <div class="text-content">
@@ -176,8 +176,52 @@
 
 <!-- footer -->
     <footer>
-        <p>Copyright © CostanzaDarcangelis 2024</p>
+        <p>Copyright © CostanzaDarcangelis 2025</p>
     </footer>
     <script src="scripts.js"></script>
+
+
+    // mobile menu
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuIcon = document.querySelector(".hamburger-menu");
+        const dropdown = document.querySelector(".dropdown-content");
+        const menuLinks = document.querySelectorAll(".dropdown-content a");
+
+        function isMobile() {
+            return window.matchMedia("(max-width: 800px)").matches;
+        }
+
+        if (isMobile()) {
+            // Apri il menu quando il pulsante è selezionato con Tab o cliccato
+            menuIcon.addEventListener("focus", function () {
+                dropdown.style.display = "block";
+            });
+
+            // Chiudi il menu quando si clicca su un link
+            menuLinks.forEach(link => {
+                link.addEventListener("click", function () {
+                    dropdown.style.display = "none";
+                });
+            });
+
+            // Chiudi il menu quando si clicca fuori
+            document.addEventListener("click", function (event) {
+                if (!menuIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.style.display = "none";
+                }
+            });
+
+            // Permetti di navigare con Tab ed Enter
+            menuIcon.addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                }
+            });
+        }
+    });
+    </script>
+
+    
 </body>
 </html>
