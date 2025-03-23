@@ -374,18 +374,14 @@ header {
     color: #5ECBA1;
 }
 
-.contact-info h3 {
-    font-size: 24px; /* Aggiungi la dimensione del font per h3 */
-}
-
 .contact-info a {
-    color: #5ECBA1; /* Verde di default */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    font-size: 24px; /* Imposta la stessa grandezza di h3 */
+    color: #5ECBA1;
+    text-decoration: none;
+    font-size: 30px;
 }
 
 .contact-info a:hover {
-    color: black; /* Diventa nero al passaggio del mouse */
+    color: black;
 }
 
 .social-links {
@@ -397,6 +393,7 @@ header {
     margin-right: 10px;
     text-decoration: none;
     color: #5ECBA1;
+    font-size: 20px;
 }
 
 .social-links a:hover {
@@ -406,6 +403,13 @@ header {
 .social-links i {
     margin-right: 5px;
 }
+
+@media (max-width: 800px) {
+  .contact-info a {
+      font-size: 20px;
+  }
+}
+
 
 /* Freccia per tornare in alto */
 .scroll-to-top {
