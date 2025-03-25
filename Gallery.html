@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria Stile Pinterest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .gallery {
+            column-count: 4;
+            column-gap: 10px;
+            padding: 10px;
+            max-width: 1200px; /* Stessa larghezza della topbar e dell'intro */
+            margin: 0 auto; /* Centra la galleria */
+            padding: 80px; /* Stesso padding di .content */
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: block;
+
+        }
+        @media (max-width: 900px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="photo/1_COVER.jpg" alt="Image 1">
+        <img src="photo/3_data.jpg" alt="Image 2">
+        <img src="photo/4_carta 3.jpg" alt="Image 3">
+        <img src="photo/6_seat photo.jpg" alt="Image 4">
+        <img src="photo/1_COVER.jpg" alt="Image 5">
+        <img src="photo/1_COVER.jpg" alt="Image 6">
+        <img src="photo/3_data.jpg" alt="Image 2">
+        <img src="photo/4_carta 3.jpg" alt="Image 3">
+    </div>
+</body>
+</html>
